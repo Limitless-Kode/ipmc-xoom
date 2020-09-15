@@ -21,7 +21,6 @@ socket.on("offer", (id, description) => {
         socket.emit("answer", id, peerConnection.localDescription);
       });
     peerConnection.ontrack = event => {
-        console.log(event);
       video.srcObject = event.streams[0];
     };
     peerConnection.onicecandidate = event => {

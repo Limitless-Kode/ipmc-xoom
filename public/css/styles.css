@@ -166,9 +166,6 @@ html {
   }
 
 
-video::-webkit-media-controls {
-    display:none !important;
-  }
 
 .video .controls{
 	position: absolute;

@@ -23,12 +23,21 @@ navigator.mediaDevices
     video.srcObject = stream;
     socket.emit("broadcaster");
   })
-  .catch(error => console.error(error));
+  .catch(error => console.log(error));
 
 
+
+
+  // document.querySelector('#share').addEventListener('click',()=>{
+  //   navigator.mediaDevices.getDisplayMedia({video: { mediaSource: "screen" }})
+  //   .then(stream =>{
+  //     video.srcObject = stream;
+  //     socket.emit("broadcaster");
+  //   })
+  //   .catch(error => console.log(error));
+  // })
 
   socket.on("watcher", id => {
-    console.log("watcher");
     const peerConnection = new RTCPeerConnection(config);
     peerConnections[id] = peerConnection;
   
@@ -56,7 +65,6 @@ navigator.mediaDevices
   socket.on("candidate", (id, candidate) => {
     peerConnections[id].addIceCandidate(new RTCIceCandidate(candidate));
   });
-
 
 
 
